@@ -1,0 +1,140 @@
+body{
+    position: relative;
+}
+.container{
+    margin-top: 30px;
+}
+.bg{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: -1;
+}
+
+.tebel-banget {
+    font-weight: 900;
+  }
+  
+.tebel-sedang {
+    font-weight: bold;
+}
+
+.desc{
+    max-width: 400px;
+}
+
+.button {
+    background-color: #1A3F91;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+.button:hover {
+    background-color: #e8b114;
+    color: white;
+}
+  
+
+.gambar{
+  display: none;
+}
+
+.img{
+  width: 500px;
+  z-index: -1;
+}
+
+.link{
+    color: #1A3F91;
+    text-decoration: none;
+    transition: 0.3s;
+}
+  
+.link:hover{
+    color:  #e8b114;
+}
+
+
+.bg-custom{
+    background-color: #1A3F91 !important;
+    transition: 0.3s;
+    color: #fff !important;
+}
+
+.bg-custom:hover {
+    background-color:#e8b114 !important;
+    color: #fff !important;
+}
+
+
+.bg-active{
+    background-color: transparent !important;
+    transition: 0.3s;
+    color: #1A3F91 !important;
+}
+
+  .navbar{
+      width: 100%;
+  }
+
+  .link-navbar{
+    color: #000000;
+    transition: 0.3s;
+  }
+
+  .link-navbar:hover{
+    color: #e8b114;
+  }
+
+ 
+@media screen and (max-width: 600px) {
+    .img{
+      display: none;
+      width: 500px;
+    }
+  
+    .gambar{
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    .img{
+      display: none;
+      width: 500px;
+    }
+  
+    .gambar{
+      display: block;
+    }
+  
+  }
+  
+  @media screen and (max-width: 1199px) {
+    .img{
+      width: 500px;
+      z-index: -1;
+    }
+  
+  }
+  
+  @media screen and (max-width: 992px) {
+    .img{
+      width: 300px;
+      z-index: -1;
+    }
+  
+  }
+  span{
+      color: #e8b114;
+      font-weight: bold;
+  }
+  span a{
+      color: #1A3F91;
+
+  }

@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+<app-Header></app-Header>
+<h1>Pointage Logistique</h1>
+<form #f="ngForm">
+  <label>Nom</label>
+  <input type="text" name="Nom"  [(ngModel)]="selectedPointageLOG.Nom" />
+  <br />
+  <label>Prenom</label>
+  <input type="text" name="Prenom" [(ngModel)]="selectedPointageLOG.Prenom" />
+  <br />
+
+  <label>Departement</label>
+  <br>
+  
+  <select type="list" name="Departement" [(ngModel)]="selectedPointageLOG.Departement">
+    
+    <option value="" disabled default selected hidden>Choisissez votre Departement SVP</option>
+    <option value="LOG" name="LOG">Departement Logistique</option>
+   
+  </select>
+<br>
+
+  <label>Poste</label>
+  <input type="text" name="Poste" [(ngModel)]="selectedPointageLOG.Poste" />
+  <br />
+  <label>Date</label>
+  <input type="date" name="Date" [(ngModel)]="selectedPointageLOG.Date" />
+  <br />
+  <label>Heure Entree</label>
+  <input type="number" name="HeureEntree"  min="1" max="24" [(ngModel)]="selectedPointageLOG.HeureEntree" />
+  <br />
+  <label>Heure Sortie</label>
+  <input type="number" min="1" max="24" name="HeureSortie" [(ngModel)]="selectedPointageLOG.HeureSortie" />
+  <br />
+  <br>
+  <input
+    type="button"
+    (click)="createOrUpdatePointageLOG(f)"
+    value="Ajouter Ou Mettre A jour"
+  />
+</form>
+<br/>
+<div>
+  <br/>
+  <i class="fas fa-file-excel fa-1x icon" (click)="exportexcel()" style="cursor: pointer" align="left"> Exporter Fichier Excel</i>
+  <br/>
+  <br>
+  <table class="table table-striped table-bordered" id="PointageLOG">
+    <tr>
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Departement</th>
+      <th>Poste</th>
+      <th>Date</th>
+      <th>HeureEntree</th>
+      <th>HeureSortie</th>
+      <th>Option</th>
+    </tr>
+    <tr *ngFor="let pointage of pointages">
+      <td>{{ pointage.id }}</td>
+      <td>{{ pointage.Nom }}</td>
+      <td>{{ pointage.Prenom }}</td>
+      <td>{{ pointage.Departement }}</td>
+      <td>{{ pointage.Poste }}</td>
+      <td>{{ pointage.Date }}</td>
+      <td>{{ pointage.HeureEntree }}</td>
+      <td>{{ pointage.HeureSortie }}</td>
+      <td>
+        <button (click)="selectPointageLOG(pointage)">Editer</button>
+        <button id="del" (click)="deletePointageLOG(pointage.id)">Supprimer</button>
+      </td>
+    </tr>
+  </table>
+</div>

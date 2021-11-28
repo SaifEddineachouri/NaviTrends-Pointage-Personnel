@@ -1,0 +1,64 @@
+<app-Header></app-Header>
+<h1>Chercher Un Employee</h1>
+<br>
+<form #f="ngForm">
+  <div class="row">
+    <div class="col-5">
+      <label for="Nom"> Nom</label>
+      <input type="text"  class="form-control" name="nom" #nom placeholder="Entrer Nom" >
+    </div>
+    <div class="col-5">
+      <label for="Prenom"> Prenom</label>
+      <input type="text"  class="form-control" name="prenom" #prenom placeholder="Entrer Prenom" >
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-10">
+      <label for="Date">Date</label>
+      <input type="Date"  class="form-control" name="Date"  #date placeholder="Entrer Une Date ">
+    </div>
+  </div>
+  <br>
+
+  <input type="button" class="btn btn-primary" name="Chercher" id="Chercher" value="Chercher" (click)="cherchePointages(nom.value,prenom.value,date.value)">
+
+<br>
+<br>
+<div>
+  <label for="HeureTravaille"> Jours Travaille : {{ numberOfDayPerMonth  }}  Jour</label>
+</div>
+<br>
+<button (click)="makePdf()" class="btn btn-secondary">Telecharger Format Pdf</button>
+
+</form>
+<br>
+<div class="table"  id="content" #content>
+  <br>
+<table class="table table-striped table-bordered">
+  <tr>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Departement</th>
+    <th>Poste</th>
+    <th>Duree</th>
+    <th>Regime</th>
+    <th>PrixHeure</th>
+    <th>SalaireMois</th>
+    <th>Salaire Annuel</th>
+    <th>Salaire Avec Impot</th>
+  </tr>
+  <tr *ngFor="let Pointage of Pointages">
+    <td>{{ Pointage.Nom }}</td>
+    <td>{{ Pointage.Prenom }}</td>
+    <td>{{ Pointage.Departement }}</td>
+    <td>{{ Pointage.Poste }}</td>
+    <td>{{ Pointage.duree }} Heures</td>
+    <td> {{RegimeEmp}}H/Semaine</td>
+    <td> {{PrixHeure}}Dt</td>
+    <td> {{SalaireMois}}Dt</td>
+    <td> {{SalaireAnnuel}}Dt</td>
+    <td> {{SalaireAvecImpot}}Dt</td>
+  </tr>
+</table>
+</div>

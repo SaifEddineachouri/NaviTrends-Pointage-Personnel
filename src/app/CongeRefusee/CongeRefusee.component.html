@@ -1,0 +1,86 @@
+<app-Header></app-Header>
+<h1>Les Demande Refusée</h1>
+<br>
+<form #f="ngForm" [hidden]="true">
+  <div class="row">
+    <div class="col-5">
+      <label for="Nom"> Nom</label>
+      <input type="text"  class="form-control" name="Nom" #nom placeholder="Entrer Votre Nom"  [(ngModel)]="selectedConges.Nom">
+    </div>
+    <div class="col-5">
+      <label for="Prenom"> Prénom</label>
+      <input type="text"  class="form-control" name="Prenom" #prenom placeholder="Entrer Votre Prenom" [(ngModel)]="selectedConges.Prenom">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-10">
+      <label for="Cin">Cin</label>
+      <input type="number"  class="form-control" name="Cin"  #Cin placeholder="Entrer Votre Cin " [(ngModel)]="selectedConges.Cin">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-10">
+      <label for="Email">Email</label>
+      <input type="text"  class="form-control" name="Email"  #Email placeholder="Entrer Votre Email " [(ngModel)]="selectedConges.Email">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-10">
+      <label for="DateDebut">Date Début</label>
+      <input type="Date"  class="form-control" name="DateDebut"  #datedeb placeholder="Entrer Une Date Debut " [(ngModel)]="selectedConges.DateDebut">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-10">
+      <label for="DateFin">Date Fin</label>
+      <input type="Date"  class="form-control" name="DateFin"  #datefin placeholder="Entrer Une Date Fin " [(ngModel)]="selectedConges.DateFin">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-10">
+      <label for="Cause"> Cause</label>
+      <input type="text"  class="form-control" name="Cause" #Cause placeholder="Entrer le Cause" [(ngModel)]="selectedConges.Cause">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-10">
+      <label for="TypeConges">Type de Conges</label>
+      <br>
+      <select type="list" name="TypeConges" [(ngModel)]="selectedConges.TypeConges" >
+        <option value="" disabled default selected hidden>Choisissez Type de Conges</option>
+        <option value="MALADIE" name="MALADIE">CONGÉ MALADIE</option>
+        <option value="PAYÉ" name="PAYÉ">CONGÉ PAYÉ</option>
+        <option value="SANS SOLDE" name="SANS SOLDE">CONGÉ SANS SOLDE</option>
+        <option value="ANNUEL" name="ANNUEL">CONGÉ ANNUEL</option>
+        <option value="FORMATION" name="FORMATION">CONGÉ INDIVIDUEL  DE FORMATION</option>
+      </select>  
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+</form>
+
+<br>
+<br>
+<div class="card" *ngFor="let conges of Congess">
+  <div class="card-container">
+    <h3>{{conges.Nom}},{{conges.Prenom}}</h3>
+    <h6>Cin :{{conges.Cin}}</h6>
+    <h6>Cause :{{conges.Cause}}</h6>
+    <h6>Type Conge :{{conges.TypeConges}}</h6>
+    <p>Debut : {{conges.DateDebut}} <br/> Fin : {{conges.DateFin}}</p>
+    <div  class="buttons">
+      <button class="primary2" (click)="selectConges(conges)">Selectionner</button>
+    </div>
+    <br>
+  </div>
+  <br>
+</div>
+

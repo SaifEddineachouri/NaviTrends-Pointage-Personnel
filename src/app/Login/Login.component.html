@@ -1,0 +1,91 @@
+<app-navigation></app-navigation>
+<h2 class="text-center">Se Connecter</h2>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 col-md-offset-5">
+    <div class="jumbotron">
+      <form
+        [formGroup]="angForm"
+        (ngSubmit)="postdata(angForm)"
+        autocomplete="off"
+      >
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <br>
+          <span
+                class="error"
+                *ngIf="!angForm.get('email')?.valid && angForm.get('email')?.touched" 
+                class="help-block">Entrer une Adresse E-mail valide s'il vous plait !</span>
+          <br>
+          <input
+            type="email"
+            name="email"
+            formControlName="email"
+            autocomplete="off"
+            class="form-control input-sm"
+            placeholder="Adresse E-mail"
+          />
+        </div>
+        <div class="form-group">
+          <label for="Password">Mot De Passe</label>
+          <br>
+          <span
+                class="error"
+                *ngIf="!angForm.get('password')?.valid && angForm.get('password')?.touched" 
+                class="help-block">Entrer un mot de passe valide s'il vous plait !</span>
+          <br>
+          <input
+            type="password"
+            name="Password"
+            formControlName="password"
+            autocomplete="off"
+            class="form-control input-sm"
+            placeholder="Mot de Passe"
+          />
+        </div>
+        <!-- <div class="form-group">
+          <label for="role">Role</label>
+          <input
+            type="text"
+            name="role"
+            formControlName="role"
+            autocomplete="off"
+            class="form-control input-sm"
+            placeholder="role"
+          />
+        </div> -->
+
+        <div class="form-group">
+          
+          <label for="role">Role</label>
+          <br>
+          <span
+                class="error"
+                *ngIf="!angForm.get('role')?.valid && angForm.get('role')?.touched" 
+                class="help-block">Veuillez sélectionner un rôle !</span>
+          <br>
+          <select
+            type="list"
+            name="role"
+            formControlName="role"
+            autocomplete="off"
+            class="form-control input-sm"
+          >
+            <option value="" disabled default selected hidden>
+              Choisissez votre rôle SVP
+            </option>
+            <option value="RH" name="RH">Responsable RH</option>
+            <option value="AD" name="AD">Responsable AD</option>
+            <option value="LOG" name="LOG">Responsable LOG</option>
+            <option value="TEC" name="TEC">Responsable TEC</option>
+            <option value="COM" name="COM">Responsable COM</option>
+          </select>
+          <br />
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="!angForm.valid">Se Connecter</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-5"></div>
+</div>

@@ -1,0 +1,10 @@
+ 
+  /* Validation  Form */
+  input.ng-invalid.ng-touched{
+    border: 1px solid rgba(230, 68, 90, 0.87);
+  }
+
+  .help-block{
+    color: rgba(230, 68, 90, 0.87);
+    font-family: 'Poppins', sans-serif;
+  }
